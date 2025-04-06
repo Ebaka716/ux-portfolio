@@ -254,13 +254,15 @@ const projectDetails = {
   }
 };
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+type PageParams = {
+  id: string;
+};
 
-export default function ProjectDetail({ params }: PageProps) {
+export default async function ProjectDetail({
+  params,
+}: {
+  params: PageParams;
+}) {
   const project = projectDetails[params.id as keyof typeof projectDetails];
 
   if (!project) {
