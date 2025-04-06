@@ -254,7 +254,13 @@ const projectDetails = {
   }
 };
 
-export default async function ProjectDetail({ params }: { params: { id: string } }) {
+interface ProjectDetailProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function ProjectDetail({ params }: ProjectDetailProps) {
   const project = projectDetails[params.id as keyof typeof projectDetails];
 
   if (!project) {
