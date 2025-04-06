@@ -1,4 +1,4 @@
-import React from 'react';
+import { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 
@@ -254,15 +254,12 @@ const projectDetails = {
   }
 };
 
-type PageParams = {
-  id: string;
+type PageProps = {
+  params: { id: string };
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export default async function ProjectDetail({
-  params,
-}: {
-  params: PageParams;
-}) {
+export default function ProjectDetail({ params }: PageProps) {
   const project = projectDetails[params.id as keyof typeof projectDetails];
 
   if (!project) {
@@ -282,79 +279,42 @@ export default async function ProjectDetail({
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
-      <div className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <Link href="/" className="text-blue-400 hover:text-blue-300 mb-8 inline-block">
+      <div className="pt-16 container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold mb-8">{project.title}</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Overview</h2>
+            <p className="text-gray-300 mb-6">{project.overview}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Role</h2>
+            <p className="text-gray-300 mb-6">{project.role}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Duration</h2>
+            <p className="text-gray-300 mb-6">{project.duration}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Team</h2>
+            <p className="text-gray-300 mb-6">{project.team}</p>
+          </div>
+          
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Problem</h2>
+            <p className="text-gray-300 mb-6">{project.problem}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Solution</h2>
+            <p className="text-gray-300 mb-6">{project.solution}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Process</h2>
+            <p className="text-gray-300 mb-6">{project.process}</p>
+            
+            <h2 className="text-2xl font-semibold mb-4">Results</h2>
+            <p className="text-gray-300 mb-6">{project.results}</p>
+          </div>
+        </div>
+        
+        <div className="mt-12">
+          <Link href="/" className="text-blue-400 hover:text-blue-300">
             ← Back to Projects
           </Link>
-          
-          <h1 className="text-4xl font-bold text-white mb-6">{project.title}</h1>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <div className="lg:col-span-2">
-              <div className="bg-gray-800 h-96 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400">Project Hero Image</span>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400">Role</h3>
-                <p className="text-white">{project.role}</p>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400">Duration</h3>
-                <p className="text-white">{project.duration}</p>
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-400">Team</h3>
-                <p className="text-white">{project.team}</p>
-              </div>
-            </div>
-          </div>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
-            <p className="text-gray-300">{project.overview}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">The Problem</h2>
-            <p className="text-gray-300">{project.problem}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">The Solution</h2>
-            <p className="text-gray-300">{project.solution}</p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Process</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
-              {project.process.map((step, index) => (
-                <li key={index}>{step}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Results</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
-              {project.results.map((result, index) => (
-                <li key={index}>{result}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">Gallery</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.images.map((image, index) => (
-                <div key={index} className="bg-gray-800 h-64 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-400">Project Image {index + 1}</span>
-                </div>
-              ))}
-            </div>
-          </section>
         </div>
       </div>
     </main>
