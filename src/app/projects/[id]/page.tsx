@@ -258,10 +258,9 @@ type Props = {
   params: {
     id: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export default async function ProjectDetail({ params, searchParams }: Props) {
+export default async function ProjectDetail({ params }: Props) {
   const project = projectDetails[params.id as keyof typeof projectDetails];
 
   if (!project) {
