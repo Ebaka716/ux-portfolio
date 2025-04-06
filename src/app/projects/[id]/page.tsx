@@ -254,13 +254,14 @@ const projectDetails = {
   }
 };
 
-interface ProjectDetailProps {
+type Props = {
   params: {
     id: string;
   };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default async function ProjectDetail({ params }: ProjectDetailProps) {
+export default async function ProjectDetail({ params, searchParams }: Props) {
   const project = projectDetails[params.id as keyof typeof projectDetails];
 
   if (!project) {
