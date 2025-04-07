@@ -89,32 +89,16 @@ const projectDetails = {
     ]
   },
   'fidelity-customer-service': {
-    title: 'Fidelity Customer Service Experience',
-    overview: 'Led the end-to-end design process for Customer Service page improvements, creating a single-page web application that seamlessly integrates with Fidelity\'s design system and streamlines customer support interactions.',
-    role: 'Senior UX Designer',
-    duration: '2022-Present',
-    team: 'Cross-functional team including developers, product managers, and stakeholders',
-    problem: 'Customer service interactions needed to be more efficient and user-friendly, with better integration of Fidelity\'s design system.',
-    solution: 'Created a streamlined single-page application that improved customer support interactions while maintaining design consistency.',
-    process: [
-      'User Research & Analysis',
-      'Design System Integration',
-      'Prototype Development',
-      'User Testing & Validation',
-      'Stakeholder Presentations',
-      'Implementation & Iteration'
-    ],
-    results: [
-      'Improved customer support efficiency',
-      'Enhanced user satisfaction',
-      'Maintained design system consistency',
-      'Streamlined customer interactions'
-    ],
-    images: [
-      '/images/fidelity-cs-1.jpg',
-      '/images/fidelity-cs-2.jpg',
-      '/images/fidelity-cs-3.jpg'
-    ]
+    title: 'Fidelity Customer Service',
+    overview: 'Led end-to-end design for Customer Service improvements, creating a streamlined single-page application that enhances support interactions.',
+    role: 'Lead UX Designer',
+    duration: '6 months',
+    team: 'Product Manager, Engineers, Content Strategist',
+    problem: 'Customer service representatives needed a more efficient interface to handle support requests and access customer information quickly.',
+    solution: 'Designed a consolidated interface with quick access to customer profiles, interaction history, and action tools in a single view.',
+    process: 'Conducted user interviews, created journey maps, developed wireframes and prototypes, and facilitated usability testing.',
+    results: 'Reduced average call handling time by 45 seconds and improved representative satisfaction scores by 22%.',
+    images: ['/images/fidelity-cs-1.jpg', '/images/fidelity-cs-2.jpg', '/images/fidelity-cs-3.jpg']
   },
   'fidelity-ai-solutions': {
     title: 'AI-Powered Service Solutions',
@@ -278,42 +262,71 @@ export default function ProjectDetail({ params }: PageProps) {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
-      <div className="pt-16 container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8">{project.title}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Overview</h2>
-            <p className="text-gray-300 mb-6">{project.overview}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Role</h2>
-            <p className="text-gray-300 mb-6">{project.role}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Duration</h2>
-            <p className="text-gray-300 mb-6">{project.duration}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Team</h2>
-            <p className="text-gray-300 mb-6">{project.team}</p>
-          </div>
-          
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Problem</h2>
-            <p className="text-gray-300 mb-6">{project.problem}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Solution</h2>
-            <p className="text-gray-300 mb-6">{project.solution}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Process</h2>
-            <p className="text-gray-300 mb-6">{project.process}</p>
-            
-            <h2 className="text-2xl font-semibold mb-4">Results</h2>
-            <p className="text-gray-300 mb-6">{project.results}</p>
-          </div>
-        </div>
-        
-        <div className="mt-12">
-          <Link href="/" className="text-blue-400 hover:text-blue-300">
-            ← Back to Projects
+      <div className="pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <Link href="/" className="text-blue-400 hover:text-blue-300 mb-8 inline-block">
+            ← Back to Showcase
           </Link>
+          
+          <h1 className="text-4xl font-bold text-white mb-6">{project.title}</h1>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div className="lg:col-span-2">
+              <div className="bg-gray-800 h-96 rounded-lg flex items-center justify-center">
+                <span className="text-gray-400">Project Hero Image</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400">Role</h3>
+                <p className="text-white">{project.role}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400">Duration</h3>
+                <p className="text-white">{project.duration}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-400">Team</h3>
+                <p className="text-white">{project.team}</p>
+              </div>
+            </div>
+          </div>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Overview</h2>
+            <p className="text-gray-300">{project.overview}</p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">The Problem</h2>
+            <p className="text-gray-300">{project.problem}</p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">The Solution</h2>
+            <p className="text-gray-300">{project.solution}</p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Process</h2>
+            <p className="text-gray-300">{project.process}</p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Results</h2>
+            <p className="text-gray-300">{project.results}</p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4">Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {project.images && project.images.map((image, index) => (
+                <div key={index} className="bg-gray-800 h-64 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-400">Project Image {index + 1}</span>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </main>
