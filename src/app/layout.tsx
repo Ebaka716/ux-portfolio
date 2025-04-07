@@ -15,8 +15,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "UX Portfolio",
-  description: "A showcase of UX design projects and experience",
+  title: "Eli Bakal's Portfolio",
+  description: "Portfolio showcasing UX design and strategy work",
 };
 
 export default function RootLayout({
