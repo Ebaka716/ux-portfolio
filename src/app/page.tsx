@@ -57,8 +57,7 @@ export default function Home() {
               Eli Bakal's Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Creating intuitive digital experiences that drive results and delight users.
-              <span className="inline-block animate-float ml-2">💡</span>
+              👋 Creating intuitive digital experiences that drive results and delight users.
             </p>
             <div className="flex justify-center space-x-4">
               <a 
